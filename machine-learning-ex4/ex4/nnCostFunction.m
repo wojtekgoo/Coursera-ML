@@ -81,23 +81,38 @@ y_bin = sparse(1:rows(y), y, 1);  # 5000x10
 # Cost function:
 J = 1/m * sum( sum( -y_bin .* log(h) - (1 - y_bin) .* log(1-h) ) );
 
-
 # Regularized J
 J = J + lambda/(2*m) * ( sum(sum(Theta1(:, 2:end) .^ 2)) + sum(sum(Theta2(:, 2:end) .^ 2)) );
 
+# Backpropagation
+Delta2 = 0;
+Delta1 = 0;
 
+Theta1_no_bias = Theta1(:, 2:end);
+Theta2_no_bias = Theta2(:, 2:end);
 
+for t = 1:m # for each training example separately
+# 1. Feedforward
+  a1 = [1 X(t,:)];            # 1x401
+  z2 = a1 * Theta1';          # 1x25 
+  a2 = sigmoid(z2);
+  a2 = [1 a2];                # 1x26
+  z3 = a2 * Theta2';          # 1x10
+  a3 = sigmoid(z3);
+ 
+# 2. node errors
+  d3 = a3 - y_bin(t,:);       # 1x10
+  d2 = (d3 * Theta2_no_bias) .* sigmoidGradient(z2);   # 1x25, use Theta_no_bias as bias has no error
+ 
+# 3. Accumulation of gradients
+  Delta2 = Delta2 + a2' * d3;
+  Delta1 = Delta1 + a1' * d2;
+  
+endfor
 
-
-
-
-
-
-
-
-
-
-
+# 4. Gradient for the neural network
+Theta2_grad = Delta2'/m;
+Theta1_grad = Delta1'/m;
 
 
 
