@@ -16,11 +16,7 @@ sim = 0;
 %
 %
 
-<<<<<<< HEAD
-sim = e ^ -( sum( (x1 - x2).^2 ) / (2*sigma^2) );
-=======
 sim = e ^ -( sum((x1 - x2) .^ 2) / (2*sigma^2) );
->>>>>>> 69e6a2e11aa670cf94955fb56e330afeb81cfc60
 
 
 

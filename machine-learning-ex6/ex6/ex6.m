@@ -147,27 +147,3 @@ visualizeBoundary(X, y, model);
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
-<<<<<<< HEAD
-
-##values = [0.01 0.03 0.1 0.3 1 3 10 30];
-##min_error = 100;
-##
-##for i = 1 : length(values)
-##  C = values(i);
-##  for j = 1 : length(values)
-##    sigma = values(j);
-##    model= svmTrain(Xval, yval, C, @(x1, x2) gaussianKernel(x1, x2, sigma));
-##    predictions = svmPredict(model, Xval);
-##    result = mean(double(predictions ~= yval));
-##    if result < min_error
-##      min_error = result;
-##      fprintf("C: %f, sigma: %f, prediction error: %f", C, sigma, result);
-##    else
-##      continue
-##    endif
-##  endfor
-##endfor
-##
-##visualizeBoundary(Xval, yval, model);
-=======
->>>>>>> 69e6a2e11aa670cf94955fb56e330afeb81cfc60

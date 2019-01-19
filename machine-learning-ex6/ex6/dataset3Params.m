@@ -22,13 +22,6 @@ sigma = 0.3;
 %  Note: You can compute the prediction error using 
 %        mean(double(predictions ~= yval))
 %
-<<<<<<< HEAD
-
-C = 0.01;
-sigma = 0.01;
-
-
-=======
 values = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30];
 result = zeros(size(values));
 
@@ -51,7 +44,6 @@ endfor
 
 C = values( row_index(index_min_error) );
 sigma = values(index_min_error);
->>>>>>> 69e6a2e11aa670cf94955fb56e330afeb81cfc60
 
 % =========================================================================
 
