@@ -147,6 +147,7 @@ visualizeBoundary(X, y, model);
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+<<<<<<< HEAD
 
 ##values = [0.01 0.03 0.1 0.3 1 3 10 30];
 ##min_error = 100;
@@ -168,3 +169,5 @@ pause;
 ##endfor
 ##
 ##visualizeBoundary(Xval, yval, model);
+=======
+>>>>>>> 69e6a2e11aa670cf94955fb56e330afeb81cfc60
